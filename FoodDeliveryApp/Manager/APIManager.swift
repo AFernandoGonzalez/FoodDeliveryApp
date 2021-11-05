@@ -6,3 +6,112 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
+import FBSDKLoginKit
+
+class APIManager {
+    static let shared = APIManager()
+    
+    let baseURL = NSURL(string: BASE_URL)
+    
+    var accessToken = ""
+    var refreshToken = ""
+    var expired = Date()
+    
+    
+    
+    //APi to login the user
+    func login(userType: String, completitionHandler: @escaping (NSError?) -> Void) {
+     
+        
+        let path = "api/social/convert-token/"
+        let url = baseURL!.appendingPathComponent(path)
+        let params: [String: Any] = [
+            "grant_type": "convert_token",
+            "client_id" : CLIENT_ID,
+            "client_secret" : CLIENT_SECRET,
+            "backend" : "facebook",
+            "token" : "EABAlDuctbpMBAMZAXxa9WIgsEB3k6s54r3bbHvpE4CuU8FM4WAZAZAHLFoaZC2yOeKsZCXhZCStyeGQSfxFCvVAzIZCLVzOp72Je2jb4ow3sZBCArh3fAgYsVu69Jf6xWsyffQQoQImpcLIXzTSyZAd2fI7KVdcY00XvWqgBZAEQgSb9rGahq1GrpLgmxYvdRMztl6XSQDPJJKlyawzcq6DHk4dsyknhntGNw0VGwnZBHRbpgoGLE2ithJWMd2wjzxTz7YZD",
+            //"token" : AccessToken.current!.tokenString,
+            //"token" : AccessToken.current!,
+            "user_type" : userType,
+        ]
+        print("__________________________________________")
+        print(url)
+        print(params)
+        
+        //Using alamofire for the request
+        AF.request(url!, method: .post, parameters: params, encoding: URLEncoding(), headers: nil).responseJSON {
+            (response) in
+            switch response.result {
+            case .success(let value):
+                let jsonData = JSON(value)
+                
+
+                print("__________________________________________")
+                print(jsonData)
+                
+                self.accessToken = jsonData["access_token"].string!
+                self.refreshToken = jsonData["refresh_token"].string!
+                self.expired = Date().addingTimeInterval(TimeInterval(jsonData["expires_in"].int!))
+
+                completitionHandler(nil)
+                print("Success")
+                break
+
+
+            case .failure(let error):
+                completitionHandler(error as NSError)
+                print("________EROR______")
+                break
+
+            }
+        }
+        
+        
+    }
+    
+    
+    
+    
+    //Aoi to logout the user
+    func logout(completionHandler: @escaping (NSError?) -> Void) {
+        
+        let path = "api/social/revoke-token/"
+        let url = baseURL!.appendingPathComponent(path)
+        let params: [String: Any] = [
+            "client_id" : CLIENT_ID,
+            "client_secret" : CLIENT_SECRET,
+            "token" : self.accessToken,
+            
+        ]
+        
+        // Alamofire for the requests
+        AF.request(url!, method: .post, parameters: params, encoding: URLEncoding(), headers: nil).responseJSON{(response) in
+            
+            switch response.result {
+            case .success:
+                completionHandler(nil)
+                break
+            
+            case .failure(let error):
+                completionHandler(error as NSError?)
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//End Class APIMAnager
+}

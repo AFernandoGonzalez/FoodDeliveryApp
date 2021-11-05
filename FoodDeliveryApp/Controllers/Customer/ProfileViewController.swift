@@ -8,22 +8,35 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var imgAvatar: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userEmailLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        userNameLabel.text = User.currenUser.name
+        userEmailLabel.text = User.currenUser.email
+        
+//        imgAvatar.image = try! UIImage(data: Data (contentsOf: URL(string: User.currenUser.pictureURL!)!))
 
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "CustomerLogout" {
+            
+            //
+            FBManager.shared.logOut()
+            User.currenUser.resetInfo()
+        }
     }
-    */
 
 }
