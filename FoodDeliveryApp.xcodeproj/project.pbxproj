@@ -27,6 +27,16 @@
 		10286C0D27348AD700E3FBE5 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10286C0C27348AD700E3FBE5 /* MealDetailViewController.swift */; };
 		10286C0F27348D3300E3FBE5 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10286C0E27348D3300E3FBE5 /* RestaurantCell.swift */; };
 		10286C112734A45300E3FBE5 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10286C102734A45300E3FBE5 /* MenuCell.swift */; };
+		1028FAAB2735735E0038D72D /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1028FAAA2735735E0038D72D /* CartViewController.swift */; };
+		1028FAAD2735738D0038D72D /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1028FAAC2735738D0038D72D /* PaymentViewController.swift */; };
+		1028FAB1273576630038D72D /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1028FAB0273576630038D72D /* CartCell.swift */; };
+		1028FAB32735894C0038D72D /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1028FAB22735894C0038D72D /* OrderViewController.swift */; };
+		1028FAB5273589650038D72D /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1028FAB4273589650038D72D /* OrderCell.swift */; };
+		1028FAB727358B8E0038D72D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1028FAB627358B8E0038D72D /* ProfileViewController.swift */; };
+		1028FAB927358C6E0038D72D /* DriversOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1028FAB827358C6E0038D72D /* DriversOrderViewController.swift */; };
+		1028FABB27358D710038D72D /* DriversOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1028FABA27358D710038D72D /* DriversOrderCell.swift */; };
+		1028FABD273592D50038D72D /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1028FABC273592D50038D72D /* DeliveryViewController.swift */; };
+		1028FABF273593580038D72D /* RevenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1028FABE273593580038D72D /* RevenueViewController.swift */; };
 		C2116E734781032A49192C09 /* Pods_FoodDeliveryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 268BBD65A1901ECCA5D419B6 /* Pods_FoodDeliveryApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +63,16 @@
 		10286C0C27348AD700E3FBE5 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		10286C0E27348D3300E3FBE5 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		10286C102734A45300E3FBE5 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		1028FAAA2735735E0038D72D /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		1028FAAC2735738D0038D72D /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		1028FAB0273576630038D72D /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		1028FAB22735894C0038D72D /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		1028FAB4273589650038D72D /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		1028FAB627358B8E0038D72D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1028FAB827358C6E0038D72D /* DriversOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversOrderViewController.swift; sourceTree = "<group>"; };
+		1028FABA27358D710038D72D /* DriversOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversOrderCell.swift; sourceTree = "<group>"; };
+		1028FABC273592D50038D72D /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
+		1028FABE273593580038D72D /* RevenueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueViewController.swift; sourceTree = "<group>"; };
 		268BBD65A1901ECCA5D419B6 /* Pods_FoodDeliveryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodDeliveryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFD694B146E42E00FC0BD61 /* Pods-FoodDeliveryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryApp/Pods-FoodDeliveryApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A6DFB2104F478F0B606D548E /* Pods-FoodDeliveryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryApp.release.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryApp/Pods-FoodDeliveryApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +170,10 @@
 				10286C082734896B00E3FBE5 /* RestaurantViewController.swift */,
 				10286C0A27348AC200E3FBE5 /* CustomerMenuViewController.swift */,
 				10286C0C27348AD700E3FBE5 /* MealDetailViewController.swift */,
+				1028FAAA2735735E0038D72D /* CartViewController.swift */,
+				1028FAAC2735738D0038D72D /* PaymentViewController.swift */,
+				1028FAB22735894C0038D72D /* OrderViewController.swift */,
+				1028FAB627358B8E0038D72D /* ProfileViewController.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -157,6 +181,9 @@
 		10286BF927347B8900E3FBE5 /* Driver */ = {
 			isa = PBXGroup;
 			children = (
+				1028FAB827358C6E0038D72D /* DriversOrderViewController.swift */,
+				1028FABC273592D50038D72D /* DeliveryViewController.swift */,
+				1028FABE273593580038D72D /* RevenueViewController.swift */,
 			);
 			path = Driver;
 			sourceTree = "<group>";
@@ -164,6 +191,7 @@
 		10286BFA27347BB700E3FBE5 /* Driver */ = {
 			isa = PBXGroup;
 			children = (
+				1028FABA27358D710038D72D /* DriversOrderCell.swift */,
 			);
 			path = Driver;
 			sourceTree = "<group>";
@@ -173,6 +201,8 @@
 			children = (
 				10286C0E27348D3300E3FBE5 /* RestaurantCell.swift */,
 				10286C102734A45300E3FBE5 /* MenuCell.swift */,
+				1028FAB0273576630038D72D /* CartCell.swift */,
+				1028FAB4273589650038D72D /* OrderCell.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -330,6 +360,10 @@
 			files = (
 				10286C0327347C3F00E3FBE5 /* Meal.swift in Sources */,
 				10286BDC2734772E00E3FBE5 /* ViewController.swift in Sources */,
+				1028FABD273592D50038D72D /* DeliveryViewController.swift in Sources */,
+				1028FAB927358C6E0038D72D /* DriversOrderViewController.swift in Sources */,
+				1028FAAD2735738D0038D72D /* PaymentViewController.swift in Sources */,
+				1028FABB27358D710038D72D /* DriversOrderCell.swift in Sources */,
 				10286BF727347AFC00E3FBE5 /* Helper.swift in Sources */,
 				10286BF027347ACA00E3FBE5 /* FBManager.swift in Sources */,
 				10286C0527347C5600E3FBE5 /* Cart.swift in Sources */,
@@ -338,12 +372,18 @@
 				10286BFF27347C2300E3FBE5 /* User.swift in Sources */,
 				10286C0F27348D3300E3FBE5 /* RestaurantCell.swift in Sources */,
 				10286C0D27348AD700E3FBE5 /* MealDetailViewController.swift in Sources */,
+				1028FAB1273576630038D72D /* CartCell.swift in Sources */,
+				1028FAB5273589650038D72D /* OrderCell.swift in Sources */,
 				10286BD82734772E00E3FBE5 /* AppDelegate.swift in Sources */,
 				10286C0727347C6900E3FBE5 /* DriverOrder.swift in Sources */,
+				1028FAB727358B8E0038D72D /* ProfileViewController.swift in Sources */,
 				10286BDA2734772E00E3FBE5 /* SceneDelegate.swift in Sources */,
 				10286BF527347AF200E3FBE5 /* Constants.swift in Sources */,
 				10286C0127347C3200E3FBE5 /* Restaurant.swift in Sources */,
+				1028FAB32735894C0038D72D /* OrderViewController.swift in Sources */,
+				1028FABF273593580038D72D /* RevenueViewController.swift in Sources */,
 				10286C112734A45300E3FBE5 /* MenuCell.swift in Sources */,
+				1028FAAB2735735E0038D72D /* CartViewController.swift in Sources */,
 				10286C092734896B00E3FBE5 /* RestaurantViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
