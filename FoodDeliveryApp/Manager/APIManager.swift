@@ -32,8 +32,8 @@ class APIManager {
             "client_id" : CLIENT_ID,
             "client_secret" : CLIENT_SECRET,
             "backend" : "facebook",
-            "token" : "EABAlDuctbpMBAMZAXxa9WIgsEB3k6s54r3bbHvpE4CuU8FM4WAZAZAHLFoaZC2yOeKsZCXhZCStyeGQSfxFCvVAzIZCLVzOp72Je2jb4ow3sZBCArh3fAgYsVu69Jf6xWsyffQQoQImpcLIXzTSyZAd2fI7KVdcY00XvWqgBZAEQgSb9rGahq1GrpLgmxYvdRMztl6XSQDPJJKlyawzcq6DHk4dsyknhntGNw0VGwnZBHRbpgoGLE2ithJWMd2wjzxTz7YZD",
-            //"token" : AccessToken.current!.tokenString,
+            //"token" : "EABAlDuctbpMBAMZAXxa9WIgsEB3k6s54r3bbHvpE4CuU8FM4WAZAZAHLFoaZC2yOeKsZCXhZCStyeGQSfxFCvVAzIZCLVzOp72Je2jb4ow3sZBCArh3fAgYsVu69Jf6xWsyffQQoQImpcLIXzTSyZAd2fI7KVdcY00XvWqgBZAEQgSb9rGahq1GrpLgmxYvdRMztl6XSQDPJJKlyawzcq6DHk4dsyknhntGNw0VGwnZBHRbpgoGLE2ithJWMd2wjzxTz7YZD",
+            "token" : AccessToken.current!.tokenString,
             //"token" : AccessToken.current!,
             "user_type" : userType,
         ]
@@ -42,7 +42,7 @@ class APIManager {
         print(params)
         
         //Using alamofire for the request
-        AF.request(url!, method: .post, parameters: params, encoding: URLEncoding(), headers: nil).responseJSON {
+        AF.request(url!, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON {
             (response) in
             switch response.result {
             case .success(let value):
@@ -57,7 +57,7 @@ class APIManager {
                 self.expired = Date().addingTimeInterval(TimeInterval(jsonData["expires_in"].int!))
 
                 completitionHandler(nil)
-                print("Success")
+                print("_______________Success___________________")
                 break
 
 
