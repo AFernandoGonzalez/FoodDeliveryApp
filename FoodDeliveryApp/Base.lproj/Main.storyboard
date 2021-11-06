@@ -604,6 +604,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Add to Cart">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="22"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addToCart:" destination="xaz-zd-jsO" eventType="touchUpInside" id="Xvy-e1-hqy"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47X-iw-P8G">
                                 <rect key="frame" x="286" y="691" width="76" height="21"/>
@@ -626,6 +629,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="-">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="removeQty:" destination="xaz-zd-jsO" eventType="touchUpInside" id="gaQ-lm-dDI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RL6-c9-LfA">
                                 <rect key="frame" x="258" y="638" width="40" height="43"/>
@@ -634,6 +640,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="+">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addQty:" destination="xaz-zd-jsO" eventType="touchUpInside" id="Aoa-z7-yn5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IR1-AN-mae"/>
@@ -648,6 +657,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imgMeal" destination="gOa-Rw-Can" id="BTD-3J-Yv4"/>
+                        <outlet property="lbQty" destination="o6H-qs-n2s" id="e3h-yg-Cbz"/>
+                        <outlet property="lbTotal" destination="47X-iw-P8G" id="MdF-Te-J4q"/>
                         <outlet property="mealDescription" destination="WK9-1N-awv" id="WoL-YG-wXh"/>
                         <outlet property="mealName" destination="p4b-iN-du8" id="OsJ-BS-eTY"/>
                     </connections>
