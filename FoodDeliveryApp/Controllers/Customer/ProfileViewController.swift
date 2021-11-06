@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
         userNameLabel.text = User.currenUser.name
         userEmailLabel.text = User.currenUser.email
         
-//        imgAvatar.image = try! UIImage(data: Data (contentsOf: URL(string: User.currenUser.pictureURL!)!))
+        imgAvatar.image = try! UIImage(data: Data (contentsOf: URL(string: User.currenUser.pictureURL!)!))
 
         // Do any additional setup after loading the view.
     }
