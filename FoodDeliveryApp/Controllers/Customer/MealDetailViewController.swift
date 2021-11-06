@@ -8,22 +8,34 @@
 import UIKit
 
 class MealDetailViewController: UIViewController {
+    
+    @IBOutlet weak var imgMeal: UIImageView!
+    
+    @IBOutlet weak var mealName: UILabel!
+    
+    @IBOutlet weak var mealDescription: UILabel!
+    
+    var meal: Meal?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        loadMeal()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func loadMeal() {
+        mealName.text = meal?.name
+        mealDescription.text = meal?.short_description
+        
+        if let imageUrl = meal?.image {
+            Helpers.loadImage(imgMeal, "\(imageUrl)")
+        }
+        
     }
-    */
+    
+
+ 
 
 }

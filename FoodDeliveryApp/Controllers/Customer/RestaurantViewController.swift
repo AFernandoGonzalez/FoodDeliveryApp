@@ -62,6 +62,19 @@ class RestaurantViewController: UIViewController , UITableViewDelegate, UITableV
     }
     
     
+    //
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MealList" {
+            let controller = segue.destination as! CustomerMenuViewController
+            controller.restaurant = restaurants[(tbvRestaurant.indexPathForSelectedRow?.row)!]
+        }
+    }
+    
+    
+    
+    
+    
+    
     //Searcb Bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterRestaurants = self.restaurants.filter({ (res: Restaurant) -> Bool in
@@ -104,6 +117,21 @@ class RestaurantViewController: UIViewController , UITableViewDelegate, UITableV
         
         return cell
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 

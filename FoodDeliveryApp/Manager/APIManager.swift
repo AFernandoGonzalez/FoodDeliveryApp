@@ -168,6 +168,30 @@ class APIManager {
         
     }
     
+    //    Get restaurants List
+        
+    func getMeals(resturantId: Int, completionHandler: @escaping (JSON?) -> Void){
+        let path = "api/customer/meals/\(resturantId)"
+        let url = baseURL?.appendingPathComponent(path)
+            
+        AF.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON{ response in
+                
+                switch response.result {
+                case .success(let value):
+                    let jsonData = JSON(value)
+                    completionHandler(jsonData)
+                    break
+                    
+                case .failure:
+                    completionHandler(nil)
+                    break
+                }
+            }
+            
+            
+            
+        }
+    
     
     
     

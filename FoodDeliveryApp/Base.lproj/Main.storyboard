@@ -454,7 +454,7 @@
                                             <outlet property="lbRestaurantAddress" destination="urR-It-mTc" id="feJ-18-rwo"/>
                                             <outlet property="lbRestaurantName" destination="fgs-MK-bvP" id="n6z-yf-M6Y"/>
                                             <outlet property="lbRestaurantPhone" destination="EOT-tu-qjf" id="vpO-PO-Fb9"/>
-                                            <segue destination="bOw-Y2-yop" kind="show" id="8aZ-vI-ODu"/>
+                                            <segue destination="bOw-Y2-yop" kind="show" identifier="MealList" id="8aZ-vI-ODu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -544,7 +544,7 @@
                                             <outlet property="mealImg" destination="01G-P2-Pjc" id="t6p-iF-aJf"/>
                                             <outlet property="mealName" destination="tQM-z7-hlF" id="DQ2-f1-rHa"/>
                                             <outlet property="mealPrice" destination="fBC-N2-wVq" id="AKK-ZN-CPu"/>
-                                            <segue destination="xaz-zd-jsO" kind="show" id="UpZ-0p-fqB"/>
+                                            <segue destination="xaz-zd-jsO" kind="show" identifier="MealDetails" id="UpZ-0p-fqB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -646,6 +646,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imgMeal" destination="gOa-Rw-Can" id="BTD-3J-Yv4"/>
+                        <outlet property="mealDescription" destination="WK9-1N-awv" id="WoL-YG-wXh"/>
+                        <outlet property="mealName" destination="p4b-iN-du8" id="OsJ-BS-eTY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gim-F6-pYk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
