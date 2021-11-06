@@ -49,7 +49,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell") as! CartCell
         
-        cell.textLabel?.text = "row \(indexPath.row)"
+        //cell.textLabel?.text = "row \(indexPath.row)"
         
         return cell
     }

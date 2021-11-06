@@ -100,6 +100,7 @@ class CustomerMenuViewController: UIViewController, UITableViewDelegate, UITable
         if segue.identifier == "MealDetails" {
             let controller = segue.destination as! MealDetailViewController
             controller.meal = meals[(tbvMenu.indexPathForSelectedRow?.row)!]
+            controller.restaurant = restaurant
             
         }
     }
