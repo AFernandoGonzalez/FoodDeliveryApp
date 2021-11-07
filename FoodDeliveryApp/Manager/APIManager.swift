@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import FBSDKLoginKit
+import MapKit
 
 class APIManager {
     static let shared = APIManager()
@@ -445,6 +446,117 @@ class APIManager {
         //requestServer(.post, path, params, URLEncoding(), completionHandler)
         print("______________________order poick up Success______")
     }
+    
+    
+    // Driver Order
+    func getCurrentDriverOrder(completionHandler: @escaping (JSON) -> Void) {
+        let path = "api/driver/order/latest/"
+        let url = baseURL?.appendingPathComponent(path)
+        let params: [String: Any] = [
+            "access_token": self.accessToken
+        ]
+        print("__________PARAMS_______")
+        print(accessToken)
+        //requestServer(.get, path, params, URLEncoding(), completionHandler)
+        
+        //testing request
+        AF.request(url!, method: .get,  parameters: params, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let jsonData = JSON(value)
+//                        self.accessToken = jsonData["access_token"].string!
+//                        self.expired = Date().addingTimeInterval(TimeInterval(jsonData["expires_in"].int!))
+                completionHandler(jsonData)
+                break
+
+            case .failure:
+                break
+            }
+        })
+        print("______________________Driver Current Order Success______")
+    }
+    
+    
+    
+    func updateLocation(location: CLLocationCoordinate2D, completionHandler: @escaping (JSON) -> Void) {
+        let path = "api/driver/location/update/"
+        let url = baseURL?.appendingPathComponent(path)
+        let params: [String: Any] = [
+            "access_token": self.accessToken,
+            "location": "\(location.latitude),\(location.longitude)"
+        ]
+        //requestServer(.post, path, params, URLEncoding(), completionHandler)
+        //testing request
+        AF.request(url!, method: .post,  parameters: params, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let jsonData = JSON(value)
+//                        self.accessToken = jsonData["access_token"].string!
+//                        self.expired = Date().addingTimeInterval(TimeInterval(jsonData["expires_in"].int!))
+                completionHandler(jsonData)
+                break
+
+            case .failure:
+                break
+            }
+        })
+        print("______________________Updating Drivers Location Success______")
+    }
+    
+    
+    func getDriverLocation(completionHandler: @escaping (JSON) -> Void) {
+        let path = "api/customer/driver/location/"
+        let url = baseURL?.appendingPathComponent(path)
+        let params: [String: Any] = [
+            "access_token": self.accessToken
+        ]
+        //requestServer(.get, path, params, URLEncoding(), completionHandler)
+        
+        //testing request
+        AF.request(url!, method: .get,  parameters: params, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let jsonData = JSON(value)
+//                        self.accessToken = jsonData["access_token"].string!
+//                        self.expired = Date().addingTimeInterval(TimeInterval(jsonData["expires_in"].int!))
+                completionHandler(jsonData)
+                break
+
+            case .failure:
+                break
+            }
+        })
+        print("______________________Driver Location______")
+    }
+    
+    
+    
+    
+//    func compeleteOrder(orderId: Int, completionHandler: @escaping (JSON) -> Void) {
+//        let path = "api/driver/order/complete/"
+//        let params: [String: Any] = [
+//            "order_id": "\(orderId)",
+//            "access_token": self.accessToken
+//        ]
+//        requestServer(.post, path, params, URLEncoding(), completionHandler)
+//    }
+//
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

@@ -100,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oli-Zo-Hbj">
-                                <rect key="frame" x="20" y="40" width="374" height="447"/>
+                                <rect key="frame" x="77" y="131" width="262" height="356"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNl-5n-Pid">
@@ -139,6 +139,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="48j-nV-ouR"/>
+                    <connections>
+                        <outlet property="bcomplete" destination="QNl-5n-Pid" id="gYf-WT-kqo"/>
+                        <outlet property="imgCustomerAvatar" destination="yE5-De-GXH" id="btY-1b-M7k"/>
+                        <outlet property="lbCustomerAddress" destination="4gD-Ny-JwK" id="pEe-HI-Yr6"/>
+                        <outlet property="lbcustomerName" destination="lhx-0K-IIa" id="nGi-x9-yLh"/>
+                        <outlet property="map" destination="oli-Zo-Hbj" id="gXB-ST-KdK"/>
+                        <outlet property="viewInfo" destination="aMv-jE-KTP" id="1Md-cp-tJa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAi-mf-Cqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
