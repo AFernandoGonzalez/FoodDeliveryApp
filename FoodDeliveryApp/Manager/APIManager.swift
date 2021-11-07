@@ -405,10 +405,46 @@ class APIManager {
 
 
 
-//
-//
-//
+//DRIVER FUNCTIONS
+
+    func getDriverOrders(completionHandler: @escaping (JSON) -> Void) {
+        let path = "api/driver/orders/ready/"
+        requestServer(.get, path, nil, URLEncoding(), completionHandler)
+    }
     
+    
+    func pickOrder(orderId: Int, completionHandler: @escaping (JSON) -> Void) {
+        let path = "api/driver/order/pick/"
+        let url = baseURL?.appendingPathComponent(path)
+        let params: [String: Any] = [
+            "order_id": "\(orderId)",
+            "access_token": self.accessToken
+        ]
+        print("__________PARAMS_______")
+        print(orderId)
+        print(accessToken)
+        
+        //testing request
+        AF.request(url!, method: .post,  parameters: params, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let jsonData = JSON(value)
+//                        self.accessToken = jsonData["access_token"].string!
+//                        self.expired = Date().addingTimeInterval(TimeInterval(jsonData["expires_in"].int!))
+                completionHandler(jsonData)
+                break
+
+            case .failure:
+                break
+            }
+        })
+        
+        
+        
+        //requestServer(.post, path, params, URLEncoding(), completionHandler)
+        print("______________________order poick up Success______")
+    }
     
     
     

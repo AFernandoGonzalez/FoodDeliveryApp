@@ -38,6 +38,9 @@
                                     <segment title="Customer"/>
                                     <segment title="Driver"/>
                                 </segments>
+                                <connections>
+                                    <action selector="switchAccount:" destination="BYZ-38-t0r" eventType="valueChanged" id="98p-Zd-aP8"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DeliveryApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGF-8O-P8A">
                                 <rect key="frame" x="109" y="166" width="182" height="42"/>
@@ -79,7 +82,9 @@
                     <connections>
                         <outlet property="bLogin" destination="XfP-VM-Ksj" id="ySS-Qb-jgZ"/>
                         <outlet property="bLogout" destination="5eg-JS-0Kn" id="r7k-OP-fl2"/>
+                        <outlet property="switchUser" destination="SIr-0J-3kw" id="wlU-RO-jQH"/>
                         <segue destination="HHd-f4-6Wm" kind="showDetail" identifier="CustomerView" id="We6-bz-cnD"/>
+                        <segue destination="bQk-ef-zcq" kind="show" identifier="DriverView" id="zky-Z1-CeX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -91,7 +96,7 @@
             <objects>
                 <viewController id="rEK-uE-wpZ" customClass="DeliveryViewController" customModule="FoodDeliveryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qYi-nQ-oZH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oli-Zo-Hbj">
@@ -139,12 +144,53 @@
             </objects>
             <point key="canvasLocation" x="-1957.9710144927537" y="2391.9642857142858"/>
         </scene>
+        <!--Drivers Profile View Controller-->
+        <scene sceneID="DNS-8h-Uj3">
+            <objects>
+                <viewController id="qJj-rX-Pd6" customClass="DriversProfileViewController" customModule="FoodDeliveryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z4W-Sa-l6R">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZIe-pP-bPF">
+                                <rect key="frame" x="87" y="80" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fd-L8-x4p">
+                                <rect key="frame" x="138" y="284" width="189" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfs-uY-9Xr">
+                                <rect key="frame" x="138" y="385" width="189" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fsQ-ed-Joo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bI1-J1-0XN"/>
+                    <connections>
+                        <outlet property="driversAvatar" destination="ZIe-pP-bPF" id="jaA-15-Sfu"/>
+                        <outlet property="lbEmail" destination="kfs-uY-9Xr" id="VpH-r5-n9x"/>
+                        <outlet property="lbName" destination="5Fd-L8-x4p" id="Xi1-Pu-Qq7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJk-qN-c4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-488.40579710144931" y="2391.9642857142858"/>
+        </scene>
         <!--Drivers Order View Controller-->
         <scene sceneID="hbc-Xe-ldP">
             <objects>
                 <viewController id="trK-MH-QSy" customClass="DriversOrderViewController" customModule="FoodDeliveryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kGe-PU-9tT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wc6-H8-swf">
@@ -203,6 +249,12 @@
                                                 <constraint firstItem="2bz-aX-Wwl" firstAttribute="leading" secondItem="QkA-zI-Ftc" secondAttribute="trailing" constant="73" id="vsx-ip-Hpo"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgCustomerAvatar" destination="QkA-zI-Ftc" id="mVI-fA-0jE"/>
+                                            <outlet property="lbCustomerAddress" destination="kjO-A5-mgP" id="rc3-hH-A0I"/>
+                                            <outlet property="lbCustomerName" destination="2bz-aX-Wwl" id="2cs-IS-slY"/>
+                                            <outlet property="lbRestaurantName" destination="cN1-hj-ujD" id="Kjt-Qf-UZm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -213,6 +265,7 @@
                     <navigationItem key="navigationItem" id="rxE-nI-VIE"/>
                     <connections>
                         <outlet property="tbvDriverOrder" destination="wc6-H8-swf" id="EVL-hf-M59"/>
+                        <segue destination="rEK-uE-wpZ" kind="show" identifier="CurrentDelivery" id="CGc-Mu-YFZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKo-JQ-mXm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -223,6 +276,7 @@
         <scene sceneID="4mK-By-j7z">
             <objects>
                 <tabBarController modalPresentationStyle="fullScreen" id="bQk-ef-zcq" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qau-Uf-cbo"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vfd-fT-ick">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -232,6 +286,7 @@
                         <segue destination="T1F-Me-vdk" kind="relationship" relationship="viewControllers" id="E8u-K1-LRk"/>
                         <segue destination="4TY-Dx-ocd" kind="relationship" relationship="viewControllers" id="Vuk-xr-uqi"/>
                         <segue destination="Y6v-zL-uAf" kind="relationship" relationship="viewControllers" id="Ino-b6-fmU"/>
+                        <segue destination="PpB-o7-KJD" kind="relationship" relationship="viewControllers" id="uWe-hi-jjo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kWd-4r-Bru" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -597,7 +652,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zJ-eo-5Fb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963.76811594202911" y="3122.5446428571427"/>
+            <point key="canvasLocation" x="1873.913043478261" y="3122.5446428571427"/>
         </scene>
         <!--Meal Detail View Controller-->
         <scene sceneID="Erb-5z-cPs">
@@ -778,7 +833,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wWs-H4-LKz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785.5072463768117" y="3122.5446428571427"/>
+            <point key="canvasLocation" x="2695.6521739130435" y="3122.5446428571427"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="x9W-3D-Lvn">
@@ -873,14 +928,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUP-nP-j1i">
-                                                    <rect key="frame" x="41" y="21" width="278" height="55"/>
+                                                    <rect key="frame" x="41" y="21" width="254" height="55"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$12.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSf-dq-2wE">
-                                                    <rect key="frame" x="337" y="21" width="52" height="55"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$12.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSf-dq-2wE">
+                                                    <rect key="frame" x="315" y="21" width="74" height="55"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -913,6 +968,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="4d1-2c-GHt"/>
                     <connections>
+                        <outlet property="lbStatus" destination="VsC-n4-ciD" id="6LF-vo-1if"/>
+                        <outlet property="map" destination="Ngl-Nk-de6" id="s8u-zf-aAr"/>
                         <outlet property="tbvOrder" destination="JGC-Fd-eNa" id="CTh-7Z-vzC"/>
                     </connections>
                 </viewController>
@@ -1010,7 +1067,7 @@
             <objects>
                 <viewController id="EAz-fl-qHg" customClass="RevenueViewController" customModule="FoodDeliveryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0g7-dU-mzS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XV-df-N6z">
@@ -1037,7 +1094,7 @@
                     <tabBarItem key="tabBarItem" title="Orders" id="ytF-wS-Avb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OdH-Yc-jvB">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1056,7 +1113,7 @@
                     <tabBarItem key="tabBarItem" title="Delivery" id="aZ1-3H-8iF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6X0-9s-sQE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1075,7 +1132,7 @@
                     <tabBarItem key="tabBarItem" title="Earnings" id="iOf-GC-RRA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sqO-rX-5fY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1087,10 +1144,30 @@
             </objects>
             <point key="canvasLocation" x="-1212" y="1588"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="Oof-9s-WQ8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PpB-o7-KJD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="Sw4-jh-aF4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZaB-45-LcT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qJj-rX-Pd6" kind="relationship" relationship="rootViewController" id="HGQ-qq-H7l"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NjF-vi-BpV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-488" y="1588"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2Ju-VD-KLc"/>
         <segue reference="gnU-P8-AcY"/>
+        <segue reference="CGc-Mu-YFZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
