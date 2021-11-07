@@ -566,7 +566,30 @@ class APIManager {
     
     
     
-    
+    func getDriverRevenue(completionHandler: @escaping (JSON) -> Void) {
+        let path = "api/driver/revenue/"
+        let url = baseURL?.appendingPathComponent(path)
+        let params: [String: Any] = [
+            "access_token": self.accessToken
+        ]
+        //requestServer(.get, path, params, URLEncoding(), completionHandler)
+        //testing request
+        AF.request(url!, method: .get,  parameters: params, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let jsonData = JSON(value)
+//                        self.accessToken = jsonData["access_token"].string!
+//                        self.expired = Date().addingTimeInterval(TimeInterval(jsonData["expires_in"].int!))
+                completionHandler(jsonData)
+                break
+
+            case .failure:
+                break
+            }
+        })
+        print("______________________Driver Revenue______")
+    }
     
     
     

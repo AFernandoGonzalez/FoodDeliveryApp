@@ -1082,8 +1082,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XV-df-N6z">
-                                <rect key="frame" x="20" y="56" width="374" height="287"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XV-df-N6z" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="166" width="374" height="461"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -1094,6 +1094,9 @@
                     <navigationItem key="navigationItem" id="4qe-d4-J8D">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="qcG-er-UtI"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="viewChart" destination="2XV-df-N6z" id="DMj-Cv-QEi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQr-1m-sF2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
