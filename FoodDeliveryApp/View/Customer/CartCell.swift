@@ -9,11 +9,11 @@ import UIKit
 import MapKit
 
 class CartCell: UITableViewCell {
-    
-    
+
     @IBOutlet weak var qtyItemLabel: UILabel!
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var priceItemLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

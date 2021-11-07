@@ -14,3 +14,6 @@ let CLIENT_SECRET = "evMeguSrXxZddARxWM4wuatDEcH3ufxnnTU6rlX0SiyXQCWgVLrD5PpMIgf
 
 let USER_TYPE_CUSTOMER = "customer"
 let USER_TYPE_DRIVER = "driver"
+
+let STRIPE_PUBLIC_KEY = "pk_test_51HrVG3I0pSVz7qhzEY2QqtUIEExOLgxPUNg6DCif6ioIXwD5bkzGazpkgCr8vxf2CR3ALwgsUCDzArymDdUIZ00E00H73KAHLA"
+

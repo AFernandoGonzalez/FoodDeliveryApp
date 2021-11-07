@@ -164,6 +164,9 @@ class APIManager {
             }
         }
         
+        print("___________________RESTAURANTS_______________________")
+        print("_______________________________________________________")
+        
         
         
     }
@@ -187,7 +190,8 @@ class APIManager {
                     break
                 }
             }
-            
+        print("___________________MEALS______________________")
+        print("_______________________________________________________")
             
             
         }
@@ -196,9 +200,214 @@ class APIManager {
     
     
     
+    //
+    // Request Server function
+    func requestServer(_ method: Alamofire.HTTPMethod,_ path: String,_ params: [String: Any]?,_ encoding: ParameterEncoding,_ completionHandler: @escaping (JSON) -> Void ) {
+        
+        let url = baseURL?.appendingPathComponent(path)
+        
+        //refreshTokenIfNeed {
+            
+            AF.request(url!, method: method, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON{ response in
+                
+                switch response.result {
+                case .success(let value):
+                    let jsonData = JSON(value)
+                    print("__________________________________________")
+                    print(jsonData)
+                    print("___________________requestServer______________________")
+                    completionHandler(jsonData)
+                    
+                    break
+                    
+                case .failure:
+                    //completionHandler((rawValue: JSON) )
+                    break
+                }
+            }
+        //}
+        
+    }
+    
+    
+    // API - Creating new order
+//    func createOrder(stripeToken: String, completionHandler: @escaping (JSON) -> Void) {
+//
+//        let path = "api/customer/order/add/"
+//        let simpleArray = Cart.currentCart.items
+//        let jsonArray = simpleArray.map { item in
+//            return [
+//                "meal_id": item.meal.id!,
+//                "quantity": item.qty
+//            ]
+//        }
+//
+//        if JSONSerialization.isValidJSONObject(jsonArray) {
+//
+//            do {
+//
+//                let data = try JSONSerialization.data(withJSONObject: jsonArray, options: [])
+//                let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)!
+//
+//                let params: [String: Any] = [
+//                    "access_token": self.accessToken,
+//                    "stripe_token": stripeToken,
+//                    "restaurant_id": "\(Cart.currentCart.restaurant!.id!)",
+//                    "order_details": dataString,
+//                    "address": Cart.currentCart.address!
+//                ]
+//                print("___________________URL_______________________")
+//                print("_______________________________________________________")
+//                print(data)
+//
+//                requestServer(.post, path, params, URLEncoding(), completionHandler)
+//
+//            }
+//            catch {
+//                print("JSON serialization failed: \(error)")
+//            }
+//        }
+//    }
+    
+    // API - Getting the latest order (Customer)
+//    func getLatestOrder(completionHandler: @escaping (JSON) -> Void) {
+//
+//        let path = "api/customer/order/latest/"
+//        let params: [String: Any] = [
+//            "access_token": self.accessToken
+//        ]
+//
+//        print("___________________URL_______________________")
+//        print("_______________________________________________________")
+//        print(accessToken)
+//
+//        requestServer(.get, path, params, URLEncoding(), completionHandler)
+//
+//        print(path)
+//    }
+
     
     
     
+    
+    
+    
+    //Creating New Order Payment
+    func createOrder(stripeToken: String, completionHandler: @escaping (JSON) -> Void){
+
+        let path = "api/customer/order/add/"
+        let url = baseURL?.appendingPathComponent(path)
+        print("___________________Create Order URL_______________________")
+        print("_______________________________________________________")
+        print(url)
+        let simpleArray = Cart.currentCart.items
+        let jsonArray = simpleArray.map { item in
+            return [
+                "meal_id": item.meal.id!,
+                "quantity": item.qty
+            ]
+        }
+
+        if JSONSerialization.isValidJSONObject(jsonArray) {
+
+            do {
+
+                let data = try JSONSerialization.data(withJSONObject: jsonArray, options: [])
+                let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)!
+
+                let params: [String: Any] = [
+                    "access_token": self.accessToken,
+                    "stripe_token": stripeToken,
+                    "restaurant_id": "\(Cart.currentCart.restaurant!.id!)",
+                    "order_details": dataString,
+                    "address": Cart.currentCart.address!
+                ]
+
+                print(accessToken)
+                print(stripeToken)
+                print("\(Cart.currentCart.restaurant!.id!)")
+                print(dataString)
+                print(Cart.currentCart.address!)
+
+                //requestServer(.post, path, params, URLEncoding(), completionHandler)
+
+                //testing request
+                AF.request(url!, method: .post,  parameters: params, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
+
+                    switch response.result {
+                    case .success(let value):
+                        let jsonData = JSON(value)
+//                        self.accessToken = jsonData["access_token"].string!
+//                        self.expired = Date().addingTimeInterval(TimeInterval(jsonData["expires_in"].int!))
+                        completionHandler(jsonData)
+                        break
+
+                    case .failure:
+                        break
+                    }
+                })
+                // end of test request
+
+                print("___________________CREATE ORDER_______________________")
+                print("_______________________________________________________")
+
+            }
+            catch {
+                print("JSON serialization failed: \(error)")
+            }
+        }
+
+    }
+//
+//
+
+    //Getting latest Orders from Customer
+    func getLatestOrder(completionHandler: @escaping (JSON) -> Void) {
+
+        let path = "api/customer/order/latest/"
+        let url = baseURL?.appendingPathComponent(path)
+        print("___________________URL_______________________")
+        print("_______________________________________________________")
+        print("\(String(describing: url))")
+        let params: [String: Any] = [
+            "access_token": self.accessToken
+        ]
+        print(accessToken)
+        //requestServer(.get, path, params, URLEncoding(), completionHandler)
+        //testing request
+        AF.request(url!, method: .get,  parameters: params, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let jsonData = JSON(value)
+
+                print("___________________LatestOrder_______________________")
+                print("_______________________________________________________")
+                print(jsonData)
+//                        self.accessToken = jsonData["access_token"].string!
+//                        self.expired = Date().addingTimeInterval(TimeInterval(jsonData["expires_in"].int!))
+                completionHandler(jsonData)
+
+                break
+
+
+
+            case .failure:
+                print("__________________FAILED")
+                print(response)
+                break
+            }
+        })
+        // end of test request
+    }
+
+
+
+
+
+//
+//
+//
     
     
     
