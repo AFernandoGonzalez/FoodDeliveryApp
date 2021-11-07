@@ -11,15 +11,10 @@ import MapKit
 class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var lbcustomerName: UILabel!
-    
     @IBOutlet weak var lbCustomerAddress: UILabel!
-    
     @IBOutlet weak var imgCustomerAvatar: UIImageView!
-    
     @IBOutlet weak var viewInfo: UIView!
-    
     @IBOutlet weak var map: MKMapView!
-    
     @IBOutlet weak var bcomplete: UIButton!
     
     
@@ -212,8 +207,34 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     
     
+    //Complete Order Button Action
     
-    
+    @IBAction func completeOrder(_ sender: Any) {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            
+            APIManager.shared.compeleteOrder(orderId: self.orderId!, completionHandler: { (json) in
+                
+                print("__________OrderCOMplete Fuction________")
+                print(json)
+                if json != nil {
+                    // Stop updating driver location
+                    self.timer.invalidate()
+                    self.locationManager.stopUpdatingLocation()
+                    
+                    // Redirect driver to the Ready Orders View
+                    self.performSegue(withIdentifier: "ViewOrders", sender: self)
+                }
+            })
+        }
+        
+        let alertView = UIAlertController(title: "Complete Order", message: "Are you sure?", preferredStyle: .alert)
+        alertView.addAction(cancelAction)
+        alertView.addAction(okAction)
+        
+        self.present(alertView, animated: true, completion: nil)
+        
+    }
     
     
     

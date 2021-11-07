@@ -108,6 +108,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Complete Order"/>
+                                <connections>
+                                    <action selector="completeOrder:" destination="rEK-uE-wpZ" eventType="touchUpInside" id="kAX-z7-SiK"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aMv-jE-KTP">
                                 <rect key="frame" x="20" y="554" width="374" height="128"/>
@@ -146,6 +149,7 @@
                         <outlet property="lbcustomerName" destination="lhx-0K-IIa" id="nGi-x9-yLh"/>
                         <outlet property="map" destination="oli-Zo-Hbj" id="gXB-ST-KdK"/>
                         <outlet property="viewInfo" destination="aMv-jE-KTP" id="1Md-cp-tJa"/>
+                        <segue destination="trK-MH-QSy" kind="show" identifier="ViewOrders" id="Zp8-kZ-mcx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAi-mf-Cqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1175,6 +1179,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="2Ju-VD-KLc"/>
         <segue reference="gnU-P8-AcY"/>
+        <segue reference="Zp8-kZ-mcx"/>
         <segue reference="CGc-Mu-YFZ"/>
     </inferredMetricsTieBreakers>
     <resources>

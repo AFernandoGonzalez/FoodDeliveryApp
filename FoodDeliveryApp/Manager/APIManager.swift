@@ -535,14 +535,32 @@ class APIManager {
     
     
     
-//    func compeleteOrder(orderId: Int, completionHandler: @escaping (JSON) -> Void) {
-//        let path = "api/driver/order/complete/"
-//        let params: [String: Any] = [
-//            "order_id": "\(orderId)",
-//            "access_token": self.accessToken
-//        ]
-//        requestServer(.post, path, params, URLEncoding(), completionHandler)
-//    }
+    func compeleteOrder(orderId: Int, completionHandler: @escaping (JSON) -> Void) {
+        let path = "api/driver/order/complete/"
+        let url = baseURL?.appendingPathComponent(path)
+        let params: [String: Any] = [
+            "order_id": "\(orderId)",
+            "access_token": self.accessToken
+        ]
+        //requestServer(.post, path, params, URLEncoding(), completionHandler)
+        
+        //testing request
+        AF.request(url!, method: .post,  parameters: params, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let jsonData = JSON(value)
+//                        self.accessToken = jsonData["access_token"].string!
+//                        self.expired = Date().addingTimeInterval(TimeInterval(jsonData["expires_in"].int!))
+                completionHandler(jsonData)
+                break
+
+            case .failure:
+                break
+            }
+        })
+        print("______________________Complete Order Success______")
+    }
 //
     
     
