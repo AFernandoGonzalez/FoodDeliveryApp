@@ -37,7 +37,7 @@ class RevenueViewController: UIViewController {
         viewChart.xAxis.labelPosition = .bottom
         //viewChart.descriptionText = ""
         //viewChart.xAxis.setLabelsToSkip(0)
-        viewChart.xAxis.setLabels("0")
+        //viewChart.xAxis.setLabels("0")
         
         viewChart.legend.enabled = false
         viewChart.scaleYEnabled = false
