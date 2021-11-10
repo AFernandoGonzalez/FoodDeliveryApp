@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -789,18 +789,23 @@
                                     <action selector="placeOrder:" destination="eJb-ld-bIz" eventType="touchUpInside" id="xDc-rg-B3r"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UO2-JZ-cRK" customClass="STPPaymentCardTextField" customModule="Stripe">
-                                <rect key="frame" x="20" y="140" width="350" height="137"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UO2-JZ-cRK" customClass="STPPaymentCardTextField" customModule="Stripe">
+                                <rect key="frame" x="16" y="140" width="382" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="6Jc-NG-hhG"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JuQ-OM-csF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JuQ-OM-csF" firstAttribute="bottom" secondItem="23p-SJ-Sc7" secondAttribute="bottom" constant="47" id="Ap6-X4-ckg"/>
+                            <constraint firstItem="JuQ-OM-csF" firstAttribute="trailing" secondItem="UO2-JZ-cRK" secondAttribute="trailing" constant="16" id="MO1-8M-mMs"/>
+                            <constraint firstItem="UO2-JZ-cRK" firstAttribute="leading" secondItem="JuQ-OM-csF" secondAttribute="leading" constant="16" id="byB-VT-R1l"/>
                             <constraint firstItem="JuQ-OM-csF" firstAttribute="trailing" secondItem="23p-SJ-Sc7" secondAttribute="trailing" constant="103" id="f5A-MB-glq"/>
                             <constraint firstItem="23p-SJ-Sc7" firstAttribute="leading" secondItem="JuQ-OM-csF" secondAttribute="leading" constant="104" id="o7G-l0-zxl"/>
+                            <constraint firstItem="UO2-JZ-cRK" firstAttribute="top" secondItem="JuQ-OM-csF" secondAttribute="top" constant="84" id="wxS-yK-NDy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EyM-nO-hsq"/>
