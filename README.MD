@@ -1,4 +1,4 @@
-# FoodDeliveryApp
+# FastCart
 
 ## Table of Contents
 1. [Overview](#Overview)
